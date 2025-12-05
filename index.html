@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Clock, CheckCircle, Target, Zap, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react';
+ort { Clock, CheckCircle, Target, Zap, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react';
 
 // --- Routine Data Structure ---
 const routines = {
@@ -379,4 +378,15 @@ const App = () => {
                   const stepEndTime = stepStartTime - step.duration;
                   return (
                     <li key={index} className="text-sm">
- 
+                      <p className="font-semibold">{step.name} <span className="text-indigo-500">({formatTime(step.duration)})</span></p>
+                      <p className="text-xs italic text-gray-500">Approx. Race Time Remaining: T-{formatTime(stepStartTime)} to T-{formatTime(stepEndTime)}</p>
+                      <p className="text-xs mt-1 bg-indigo-50 p-2 rounded">{step.cues}</p>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
